@@ -1,23 +1,755 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 스마트 모빌리티 트렌드 매거진 | 자동차리스 & 장기렌탈 올인원 가이드</title>
+    <meta name="description" content="2026년 변화된 친환경 세제 혜택과 수입차 및 국산 SUV의 현명한 이용 전략을 제안합니다. 장기렌트, 운용리스, 무심사 렌탈까지 전문적인 맞춤형 금융 분석을 만나보세요.">
+    <meta name="keywords" content="자동차리스, 장기렌트, 운용리스, 테슬라리스, GV80장기렌트, 신용불량자장기렌트, 수입차리스, 스마트모빌리티">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph (Naver/Kakao 최적화) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="2026 스마트 모빌리티 트렌드 매거진 | 자동차리스 & 장기렌탈 가이드">
+    <meta property="og:description" content="변화하는 2026년 모빌리티 시장에서 가장 지혜롭게 내 차를 마련하는 비결. 맞춤형 리스와 장기렌트 프로모션 실시간 확인.">
+    <meta property="og:image" content="https://images.pexels.com/photos/100656/pexels-photo-100656.jpeg">
+    <meta property="og:url" content="https://carnrentdsite.withusrizz.com">
+
+    <!-- CSS Stylesheet -->
+    <style>
+        :root {
+            --bg-color: #FAF8F5;
+            --primary-color: #2D4A43;
+            --secondary-color: #8E9B90;
+            --accent-color: #D3A297;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --white: #FFFFFF;
+            --card-shadow: 0 12px 30px rgba(45, 74, 67, 0.06);
+            --transition: all 0.35s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        /* Header Style */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid rgba(142, 155, 144, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        /* Hero Banner */
+        .hero {
+            max-width: 1200px;
+            margin: 3rem auto 2rem;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #F0ECE6 0%, #E2ECE9 100%);
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1.3;
+            letter-spacing: -1.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Container & Grid */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .category-section {
+            margin-bottom: 5rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 2px solid rgba(142, 155, 144, 0.2);
+            padding-bottom: 1rem;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .category-badge {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 0.2rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Card Elements */
+        .card {
+            background-color: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(142, 155, 144, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(45, 74, 67, 0.12);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .card:hover .card-image {
+            transform: scale(1.04);
+        }
+
+        .card-body {
+            padding: 2.2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            line-height: 1.4;
+        }
+
+        .card-text {
+            font-size: 0.98rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            flex-grow: 1;
+            text-align: justify;
+        }
+
+        /* Anchor Link Highlights */
+        .keyword-link {
+            font-weight: 700;
+            color: var(--primary-color);
+            background: linear-gradient(120deg, rgba(211, 162, 151, 0.25) 0%, rgba(211, 162, 151, 0.25) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 35%;
+            background-position: 0 85%;
+            padding: 0 4px;
+            border-radius: 4px;
+        }
+
+        .keyword-link:hover {
+            background-size: 100% 100%;
+            color: var(--white);
+            background: var(--primary-color);
+        }
+
+        /* Custom Accordion FAQ for Snippets */
+        .faq-section {
+            background-color: var(--white);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            margin-top: 5rem;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(142, 155, 144, 0.1);
+        }
+
+        .faq-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(142, 155, 144, 0.2);
+            padding: 1.5rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 4rem 2rem;
+            margin-top: 6rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-info {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .footer-copyright {
+            margin-top: 2.5rem;
+            font-size: 0.8rem;
+            opacity: 0.5;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+        }
+    </style>
+
+    <!-- JSON-LD 구조화 데이터 (네이버, 구글 웹마스터 크롤러 최적화) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "2026년 기준 장기렌트와 자동차리스 중 어떤 금융 상품이 유리한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "개인사업자 및 법인의 경우 세무 비용 처리 범위(연간 최대 1,500만 원 한도) 내에서 동일하게 절세 혜택을 누릴 수 있습니다. 다만 번호판 노출(하, 허, 호)에 민감하고 보험 이력을 유지하고 싶으시다면 자동차리스(특히 운용리스)가 유리하며, 초기 취등록세 부담을 없애고 간편한 사고 처리와 보험료 할증을 피하고 싶으시다면 장기렌트가 절대적으로 권장됩니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "일시적인 신용 불량 상태에서도 장기 렌트카 계약을 진행할 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네, 가능합니다. 대기업 제휴 메이저 캐피탈사의 엄격한 정규 신용 심사에서 승인이 나지 않는 경우라도, 자체적인 완화된 심사 기준을 구축한 신용불량자장기렌트 전문 특판 프로세스를 통하면 소득 증빙이나 간단한 면허 자격 검증만으로 무보증 또는 최소한의 담보 설정 하에 즉시 신차 출고 및 인도가 가능합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "수입 전기차(테슬라 등)의 리스 계약 시 배터리 감가 상각 리스크는 어떻게 관리하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "테슬라 모델X 등 프리미엄 수입 전기차는 배터리의 기술 발전 속도가 빠르고 수명에 따른 잔존가치 우려가 높기 때문에 만기 반납형 운용리스 조건으로 설정하시는 것이 최선입니다. 만기 시 차량 시세와 무관하게 계약 당시 약정된 잔존 가치로 반납을 처리함으로써, 중고차 가격 감가상각에 대한 위기 요소를 전적으로 리스사로 전가할 수 있어 경제적 안전판을 선점할 수 있습니다."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">SMART<span>MOBILITY</span></div>
+            <nav style="display: flex; gap: 1.5rem; font-weight: 600; font-size: 0.95rem;">
+                <a href="#section-lifestyle">라이프스타일 렌트</a>
+                <a href="#section-premium">럭셔리 & EV</a>
+                <a href="#section-korean">국산 프리미엄</a>
+                <a href="#section-finance">스마트 금융 리스</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <span class="hero-tag">2026 Dynamic Mobility Insights</span>
+        <h1>자유로운 주행을 선사하는<br>가장 지능적인 차량 소유의 혁신</h1>
+        <p>복잡하고 까다로운 세법 개정과 가변적인 금리 속에서 최적의 비용 효율과 탁월한 절세 혜택을 발굴해내는 스마트 드라이버의 비밀. 내일의 드라이빙 라이프를 지금 확인해 보십시오.</p>
+    </div>
+
+    <main class="main-container">
+
+        <!-- CATEGORY 1: 라이프스타일 렌탈 솔루션 -->
+        <section class="category-section" id="section-lifestyle">
+            <div class="category-header">
+                <span class="category-badge">THEME 01</span>
+                <h2 class="category-title">자유와 유연함을 주도하는 스마트 라이프스타일 렌탈</h2>
+            </div>
+            <div class="card-grid">
+                <!-- CARD 1: 자동차렌탈 -->
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/100656/pexels-photo-100656.jpeg" alt="해안 도로를 질주하는 클래식 오픈카와 여유로운 드라이브 풍경" class="card-image">
+                    <div class="card-body">
+                        <div class="card-meta">Smart Subscription</div>
+                        <h3 class="card-title">소유를 넘어 가치를 구독하는 패러다임의 완성</h3>
+                        <p class="card-text">
+                            2026년 기준, 차량은 단순한 감가상각성 고정 자산이 아닌 매월 최적의 비용으로 편하게 구독하는 경험의 주체로 진화했습니다. 최신의 <a href="https://carnrenthssite.withusrizz.com" class="keyword-link" target="_blank" rel="noopener noreferrer">자동차렌탈</a> 프로세스는 복잡한 취등록세와 매년 부과되는 귀찮은 자동차세 납부의 번거로움을 완전히 해결해 줍니다. 또한 개인의 자산이나 대출 한도 등 부채 내역으로 잡히지 않아, 종합소득세 및 건강보험료가 갑작스럽게 요동치는 세제 불이익을 원천적으로 막아줍니다. 정기적으로 찾아오는 차량 소모품 정비와 타이어 교체 주기마저 전문 케어 매니저를 통한 무상 탁송 서비스를 기반으로 올인원 솔루션을 만끽할 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CARD 2: 장기렌트장점 -->
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg" alt="오피스 미팅룸에서 스마트하게 조율되는 자동차 리스 계약 현장" class="card-image">
+                    <div class="card-body">
+                        <div class="card-meta">Cost Efficiency</div>
+                        <h3 class="card-title">재무적 안정성과 보험료 면제의 극대화된 시너지</h3>
+                        <p class="card-text">
+                            현명한 경제 활동을 지향하는 오너들이라면 반드시 분석해야 할 <a href="https://carnrentjssite.withusrizz.com" class="keyword-link" target="_blank" rel="noopener noreferrer">장기렌트장점</a> 요소들은 무수히 많습니다. 가장 체감되는 혁신적 특징은 혹시 모를 예상치 못한 전방 돌발 사고가 발생하더라도 계약 중도에 본인의 보험 요율이 할증되는 리스크를 완벽하게 차단해 준다는 점입니다. 렌트사 고유의 우량한 단체 보험 요율을 적용받기 때문에 초보 드라이버나 사고 경험이 누적되어 높은 자부담 요율을 적용받던 운전자라도 초기 비용 없이 합리적인 정액형 월 렌탈료로 안전하게 운용이 가능하며, 법인 및 개인사업자는 매월 세금계산서 발행을 통한 깔끔한 전액 손비 처리를 누리실 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CARD 3: 자동차단기렌트 -->
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/9735304/pexels-photo-9735304.jpeg" alt="도심 속 가로수길에 정차된 프리미엄 SUV의 세련되고 럭셔리한 외관 디자인" class="card-image">
+                    <div class="card-body">
+                        <div class="card-meta">Flexible Project</div>
+                        <h3 class="card-title">급변하는 비즈니스 프로젝트에 최적화된 기간 설계</h3>
+                        <p class="card-text">
+                            출장, 해외 주재원의 일시 귀국, 프로젝트 단위의 단기 테스크포스 팀 구성 등 단기간만 유동적으로 스마트하게 고화질의 정비가 완료된 신형 차량이 필요할 때를 위해 <a href="https://carnrentofbestl.withusrizz.com" class="keyword-link" target="_blank" rel="noopener noreferrer">자동차단기렌트</a>가 기민한 기동성을 선보입니다. 2년 혹은 3년 이상의 장기 약정 허들을 넘어 단 1개월에서 수개월 사이의 약정도 위약금 폭탄 없이 선택할 수 있도록 커스터마이징된 계약서 작성을 제공합니다. 모바일 앱 터치 몇 번으로 까다롭고 귀찮은 서류 대기 없이 비대면으로 최적 차량을 선택하면 집 앞이나 공항 게이트 앞까지 전문 드라이버가 신속하고 위생적인 살균 세차를 마친 차량을 신속 배송해 드립니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORY 2: 미래지향적 전기차 & 수입 럭셔리 -->
+        <section class="category-section" id="section-premium">
+            <div class="category-header">
+                <span class="category-badge">THEME 02</span>
+                <h2 class="category-title">하이엔드 테크놀로지, 미래형 EV 및 프리미엄 수입 리스</h2>
+            </div>
+            <div class="card-grid">
+                <!-- CARD 4: 테슬라리스 -->
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/11124991/pexels-photo-11124991.jpeg" alt="세련된 미래지향적 디자인의 테슬라가 급속 충전소에서 충전 중인 모습" class="card-image">
+                    <div class="card-body">
+                        <div class="card-meta">Eco-Future Tech</div>
+                        <h3 class="card-title">배터리 기술 감가 극복을 위한 영리한 세제 선점</h3>
+                        <p class="card-text">
+                            매년 가파르게 변화하는 환경부 전기차 보조금 체제와 갈수록 강화되는 제재 속에서, 최첨단 OTA 업그레이드 라이프를 누리고자 하는 오너들의 뜨거운 관심사인 <a href="https://carnrentmsite.withusrizz.com" class="keyword-link" target="_blank" rel="noopener noreferrer">테슬라리스</a> 프로그램이 최고의 금융 대안으로 발돋움했습니다. 전동화 파워트레인의 핵심인 리튬 배터리 성능 저하 및 5년 이후의 중고 가격 하락 우려를 리스사 고유의 잔존가치 보장 설계를 통해 회피할 수 있어 매력적입니다. 고객은 약정된 연도 동안 월 이용 비용만 가볍게 가성비 높게 지출하다가, 계약이 끝나면 미련 없이 차량을 반납하고 새로운 플랫폼의 신모델로 재리스하여 기술적 이점을 언제나 선두에서 누립니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CARD 5: 모델X리스 -->
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/100656/pexels-photo-100656.jpeg" alt="탁 트인 고속도로 위를 주행하는 최고급 화이트 전기 세단의 미래적인 실루엣" class="card-image">
+                    <div class="card-body">
+                        <div class="card-meta">Falcon Wing Luxury</div>
+                        <h3 class="card-title">비즈니스 리더들을 위한 플래그십 테크 SUV의 정점</h3>
+                        <p class="card-text">
+                            경이로운 날개 형태의 팔콘 윙 도어를 탑재하여 차에 타고 내리는 모든 순간 압도적인 명예를 선사하는 하이엔드 SUV, <a href="https://carnrentbybestr.withusrizz.com" class="keyword-link" target="_blank" rel="noopener noreferrer">모델X리스</a> 플랜을 통해 초기 예산 투입 제로(Zero) 원칙을 극적으로 현실화할 수 있습니다. 수억 원에 육박하는 높은 신차 가액으로 인한 일시적인 현금 흐름의 묶임을 완전히 방지하고, 법인의 비즈니스 세무 상 연간 최대 한도에 최적화된 연단위 비용 매치 플랜을 매칭해 드립니다. 특히 2026년부터 더욱 견고해진 대형 법인용 프리미엄 전기차 세제 혜택 솔루션을 추가 적용하여, 세금 감면과 최고급 드라이빙의 즐거움을 지혜롭게 쟁취할 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CARD 6: BMW리스 -->
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg" alt="밝고 깔끔한 비즈니스 룸에서 파트너십 서류를 작성하며 악수를 나누는 프로들의 모습" class="card-image">
+                    <div class="card-body">
+                        <div class="card-meta">Dynamic Performance</div>
+                        <h3 class="card-title">전통의 스포츠 퍼포먼스와 극대화된 수입 딜러 제휴</h3>
+                        <p class="card-text">
+                            다이내믹한 주행 본능을 한 치의 타협 없이 계승하면서 최신 하이브리드 세그먼트와 완전한 i시리즈 플래그십 라인업을 동시에 아우르는 <a href="https://carnrentofbestp.withusrizz.com" class="keyword-link" target="_blank" rel="noopener noreferrer">BMW리스</a> 매칭 솔루션을 만나보세요. 딜러사별로 비공식적으로 소수 한정 진행되는 수천만 원 규모의 스페셜 프로모션 금리 할인 혜택을 전산망 실시간 연동을 통해 한눈에 대조 분석합니다. 높은 수준의 선납 조건이나 추가 보증금 없이도 금융권 최우수 우대 금리를 세팅할 수 있는 특판 쿼터를 다량 보유하여, 남들보다 더 합리적인 예산으로 성공적인 프리미엄 카라이프를 완성하는 최선의 경로를 열어 드립니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORY 3: 대한민국 대표 SUV 셀렉션 -->
+        <section class="category-section" id="section-korean">
+            <div class="category-header">
+                <span class="category-badge">THEME 03</span>
+                <h2 class="category-title">실용주의와 패밀리 럭셔리의 정수, 국산 베스트 프리미엄</h2>
+            </div>
+            <div class="card-grid">
+                <!-- CARD 7: 스포티지리스 -->
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/9735304/pexels-photo-9735304.jpeg" alt="노을빛을 받으며 도심의 세련된 아스팔트 위를 달리는 최신 스포티 하이브리드 SUV" class="card-image">
+                    <div class="card-body">
+                        <div class="card-meta">Steady Best Seller</div>
+                        <h3 class="card-title">국민 준중형 하이브리드의 출고 대기 지연 극복 비결</h3>
+                        <p class="card-text">
+                            탁월한 하이브리드 파워트레인의 연비 효율성과 극도로 정교화된 커브드 모니터 인테리어로 전 세대를 사로잡은 압도적인 명작, <a href="https://carnrentbybesti.withusrizz.com" class="keyword-link" target="_blank" rel="noopener noreferrer">스포티지리스</a> 특판 제도가 절정의 인기를 구가하고 있습니다. 인기 많은 그래비티 트림 및 시그니처 하이브리드 모델의 경우 일반 제조사 오더 시 길고 지루한 출고 대기 기간을 인내해야 합니다. 하지만 리스사가 선구매 제도를 활용해 선점해 놓은 대규모 재고 물량을 실시간 자동 수급 및 매칭함으로써, 단 7일 이내에 집 앞으로 번개처럼 탁송 인도받아 주말 캠핑과 스마트한 일상을 시작하실 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CARD 8: 제네시스 GV70 리스 -->
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/11124991/pexels-photo-11124991.jpeg" alt="어반 그레이 컬러의 고광택 럭셔리 스포츠 SUV가 도심의 빌딩 숲 사이에 정차된 모습" class="card-image">
+                    <div class="card-body">
+                        <div class="card-meta">Urban Prestige</div>
+                        <h3 class="card-title">젊고 트렌디한 기업가들이 가장 먼저 선호하는 명작</h3>
+                        <p class="card-text">
+                            우아하게 뻗은 여백의 미와 스포티한 유선형 쿠페 라인이 결합되어 프리미엄 도심형 SUV의 아이콘으로 정립된 <a href="https://carnrentbestestc.withusrizz.com" class="keyword-link" target="_blank" rel="noopener noreferrer">제네시스 GV70 리스</a> 플랜을 고도로 설계해 드립니다. 세련된 크레스트 그릴과 지능형 서스펜션을 무기로 부드러운 승차감을 제공하며, 법인 임직원들의 프리미엄 업무용 드라이브와 트렌디한 데일리 일상을 모두 채워줍니다. 잔존가치를 최대한으로 끌어올리는 특수 금융 공식을 가입 설계하여 월 납입금을 일반 신용 할부 대비 최대 30% 이상 슬림하게 절감함으로써 한결 쾌적한 비즈니스 재무 제표 운용을 영위해 갈 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CARD 9: GV80장기렌트 -->
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/100656/pexels-photo-100656.jpeg" alt="가을의 단풍이 우거진 한적한 산책길 옆에 웅장한 아우라를 뽐내며 주차된 대형 럭셔리 SUV" class="card-image">
+                    <div class="card-body">
+                        <div class="card-meta">Noble Giant</div>
+                        <h3 class="card-title">품격을 유지하는 대형 SUV의 무결점 세제 통합 구조</h3>
+                        <p class="card-text">
+                            국산 패밀리카이자 최고의 대형 하이엔드 SUV로서 시장의 독보적인 자부심으로 등극한 <a href="https://carnrentossite.withusrizz.com" class="keyword-link" target="_blank" rel="noopener noreferrer">GV80장기렌트</a> 전용 상품은 품격을 수반한 똑똑한 소비의 진수를 대변합니다. 대여 차량에 허용되는 특유의 세금 및 취등록 비용 세이브 메커니즘을 온전히 승계하며, 비즈니스상의 자산 부채 관리에도 무결점의 우위를 지켜낼 수 있습니다. 6인승 및 7인승 등 다채로운 커스텀 인테리어를 모두 선택하셔도 리스 대비 면세 혜택이 깊게 가미되어 패밀리 레저와 비즈니스 고객 의전을 아우르는 지상 최고의 편안함을 매월 경제적인 렌탈비로 온전히 보장해 드립니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORY 4: 스마트 금융 및 심사 완화 프로세스 -->
+        <section class="category-section" id="section-finance">
+            <div class="category-header">
+                <span class="category-badge">THEME 04</span>
+                <h2 class="category-title">스마트 금융 및 심사 장벽을 허무는 포용적 모빌리티 플랜</h2>
+            </div>
+            <div class="card-grid">
+                <!-- CARD 10: 운용리스 -->
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg" alt="유리창 너머 도심 빌딩 뷰가 보이는 럭셔리 미팅룸에서 리스 솔루션을 제안하는 세일즈 프로페셔널" class="card-image">
+                    <div class="card-body">
+                        <div class="card-meta">Asset Protection</div>
+                        <h3 class="card-title">품위 있는 일반 번호판과 비용 처리의 완벽한 공존</h3>
+                        <p class="card-text">
+                            품격이 최우선시되는 고위 임원직 및 전문직 의전 차량 운용 시, 하/허/호 번호판 대신 우아한 일반 번호판을 달고 달리며 사생활 노출을 원천 보호할 수 있는 최고의 전통적 기업 금융 도구인 <a href="https://carnrentbestestp.withusrizz.com" class="keyword-link" target="_blank" rel="noopener noreferrer">운용리스</a>에 초점을 맞추십시오. 소득세 감면율 극대화 설계와 맞물려 매달 지불하는 리스료 전액을 기업의 장부상 손쉬운 비용으로 명쾌하게 털어낼 수 있으며, 이용자 명의가 아닌 금융사 소유의 명의 자산 구조로 잡히므로 세금 인상 및 부채 가중에 대한 내외적 골칫거리를 깔끔하고 영리하게 정리할 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CARD 11: 자동차리스 -->
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/9735304/pexels-photo-9735304.jpeg" alt="고급 아파트 단지 주차장에 단정하게 주차된 차세대 럭셔리 세단의 우아한 뒤태" class="card-image">
+                    <div class="card-body">
+                        <div class="card-meta">Full Customizing</div>
+                        <h3 class="card-title">실시간 금리 비교 네트워크가 제공하는 완벽한 솔루션</h3>
+                        <p class="card-text">
+                            국내 모든 금융 기관 및 신차 다이렉트 판매사와의 전략적 전산 제휴를 기반으로 탄생한 통합 <a href="https://carnrentdsite.withusrizz.com" class="keyword-link" target="_blank" rel="noopener noreferrer">자동차리스</a> 플랫폼은 누구나 복잡한 과정 없이 최우수 무보증, 선납금 제로 혜택을 쟁취하도록 도울 준비를 갖췄습니다. 초기 목돈 투입 능력이 다소 불완전한 사회 초년생이나 재무 유동성 보유에 민감한 개인 창업자들도 보증보험 대체 가입 제도를 정밀 안내받아, 비용 부담 없이 최신 신차를 내 소유처럼 자연스럽고 편안하게 소유하며 마음껏 원하는 목적지로 드라이브를 떠날 수 있는 최고의 자유를 선물합니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CARD 12: 신용불량자장기렌트 -->
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/11124991/pexels-photo-11124991.jpeg" alt="해가 저무는 저녁, 터널 속 네온 빛줄기 사이를 빠르게 달려 나가는 하이테크 미래형 세단" class="card-image">
+                    <div class="card-body">
+                        <div class="card-meta">Inclusive Mobility</div>
+                        <h3 class="card-title">금융 소외 계층을 품는 투명하고 합법적인 재기 발판</h3>
+                        <p class="card-text">
+                            일시적인 연체 이력이나 신용 등급의 급작스러운 조정으로 금융사들의 차가운 대면 거절을 받고 아쉽게 신규 차량 발굴의 기회를 박탈당해 낙담하셨다면, 자체적 심사 구좌를 탄탄히 가동하는 <a href="https://carnrentbestestn.withusrizz.com" class="keyword-link" target="_blank" rel="noopener noreferrer">신용불량자장기렌트</a> 프로세스가 유일무이한 합리적인 돌파구가 되어 드립니다. 엄격한 일반 신용 조회 과정을 영구 배제하고 운전면허 갱신 기간 및 실제 차량 이용 소득 증빙 조건만 충족하시면, 무서류 비대면 스마트 프로세스를 가동하여 남들과 똑같은 품격 높은 고품질 신차를 자유롭게 인도받을 수 있는 혁신적인 길을 정직하게 보장합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION FOR RICH SNIPPETS -->
+        <section class="faq-section">
+            <h2 class="faq-title">스마트 모빌리티 자주 묻는 질문 (FAQ)</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q1. 2026년 대규모 자동차리스 및 장기렌트 혜택은 어떤 것들이 있나요?</div>
+                <div class="faq-answer">2026년 세제 규정상 연간 차량 1대당 1,500만 원 한도의 합리적 비용 처리가 보장되며, 전동화 친환경 파워트레인 특별 저리 금융 상품 혜택을 수반합니다. 보험 사고 시 요율 상승 방지 등 경제적 리스크 최소화 방안이 강하게 접목되었습니다.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Q2. 일시적 연체 이력이 있어도 신용불량자장기렌트를 계약할 수 있을까요?</div>
+                <div class="faq-answer">네, 기성 제1금융권의 신용 심사 프로세스 없이 당사만의 유연한 특판 조건 심사를 운용함으로써, 운전면허 1년 이상 보유 및 고정 생업 활동 소득 입증만 가볍게 수행하시면 누구나 지장 없이 신차 인도 계약을 성사시킬 수 있습니다.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Q3. 운용리스와 일반 장기렌트의 가장 극명한 차이점은 무엇인가요?</div>
+                <div class="faq-answer">가장 큰 차이는 역시 번호판 종류와 보험 가입 이력 유지 유무입니다. 운용리스는 누구나 알아챌 수 없는 품위 있고 자연스러운 개인 일반 번호판을 부착하고 본인의 기존 보험 경력을 장기적으로 유지가 가능하지만, 장기렌트는 초기 자산 증가로 인한 가입 세무 제약이 없으며 번호판은 렌트사 고유의 '하, 허, 호'를 의무 부여받습니다.</div>
+            </div>
+        </section>
+
     </main>
-  </body>
+
+
+<!-- [Footer] 스타일과 HTML 구조 최적화 -->
+<footer id="dynamic-footer" style="font-size: 12px; color: #777; padding: 40px 20px; text-align: center; line-height: 1.8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #fafafa; border-top: 1px solid #eee;">
+  
+  <div style="margin-bottom: 12px; font-weight: 500; color: #444;">
+    © <span id="copyright-year">2026</span> <span id="site-title-display">My Website</span>. All rights reserved.
+  </div>
+
+  <div style="display: flex; align-items: center; justify-content: center; gap: 8px; color: #999;">
+    <!-- 실시간 상태 표시등 (시각적 신뢰도 상승) -->
+    <span style="display: inline-block; width: 8px; height: 8px; background-color: #2ecc71; border-radius: 50%; box-shadow: 0 0 5px #2ecc71; animation: pulse 2s infinite;"></span>
+    <span id="sync-status" aria-live="polite">시스템 연결 중...</span>
+    <span style="color: #ddd;">|</span>
+    <span>최종 업데이트: <time id="last-update-time" datetime="2026-01-01">2026-01-01</time></span>
+  </div>
+
+  <style>
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  // 1. KST(한국 표준시) 데이터 생성기
+  function getKstInfo() {
+    const now = new Date();
+    
+    // Intl API를 사용하여 한국 시간 데이터 추출 (가장 정확하고 현대적인 방식)
+    const formatter = new Intl.DateTimeFormat('ko-KR', {
+      timeZone: 'Asia/Seoul',
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit',
+      hour12: false
+    });
+
+    const parts = formatter.formatToParts(now).reduce((acc, part) => {
+      acc[part.type] = part.value;
+      return acc;
+    }, {});
+
+    const year = parts.year;
+    const formattedDate = year + '-' + parts.month + '-' + parts.day;
+    const isoDateTime = year + '-' + parts.month + '-' + parts.day + 'T' + parts.hour + ':' + parts.minute + ':' + parts.second + '+09:00';
+
+    return { year, formattedDate, isoDateTime };
+  }
+
+  // 2. SEO 메타 태그 및 JSON-LD 일괄 업데이트
+  function updateSeoEngine(data) {
+    const title = document.title || window.location.hostname;
+
+    // 메타 태그 헬퍼 함수
+    const setMeta = (selector, content) => {
+      let el = document.querySelector(selector);
+      if (!el) {
+        el = document.createElement('meta');
+        if (selector.includes('property')) {
+          el.setAttribute('property', selector.split('"')[1]);
+        } else {
+          el.setAttribute('name', selector.split('"')[1]);
+        }
+        document.head.appendChild(el);
+      }
+      el.content = content;
+    };
+
+    // [SEO] 필수 메타 데이터
+    setMeta('property="og:updated_time"', data.isoDateTime);
+    setMeta('property="article:modified_time"', data.isoDateTime);
+    setMeta('name="date"', data.formattedDate);
+    setMeta('name="last-modified"', data.isoDateTime); // 서버 응답 대용
+    setMeta('name="copyright"', data.year + ' ' + title);
+
+    // [SEO] JSON-LD 구조화 데이터 (WebPage + Organization 결합)
+    let ldJsonScript = document.getElementById('seo-json-ld');
+    if (!ldJsonScript) {
+      ldJsonScript = document.createElement('script');
+      ldJsonScript.id = 'seo-json-ld';
+      ldJsonScript.type = 'application/ld+json';
+      document.head.appendChild(ldJsonScript);
+    }
+
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": window.location.href,
+          "url": window.location.href,
+          "name": title,
+          "datePublished": data.isoDateTime,
+          "dateModified": data.isoDateTime,
+          "inLanguage": "ko-KR"
+        },
+        {
+          "@type": "Organization",
+          "name": title,
+          "url": window.location.origin,
+          "logo": window.location.origin + "/favicon.ico"
+        }
+      ]
+    };
+    ldJsonScript.textContent = JSON.stringify(jsonLd);
+  }
+
+  // 3. UI 업데이트
+  function updateUi(data) {
+    const title = document.title || window.location.hostname;
+    
+    // 연도 및 제목
+    document.getElementById('copyright-year').textContent = data.year;
+    document.getElementById('site-title-display').textContent = title;
+    
+    // 날짜
+    const timeElem = document.getElementById('last-update-time');
+    timeElem.textContent = data.formattedDate;
+    timeElem.setAttribute('datetime', data.isoDateTime);
+
+    // 상태 메시지 (랜덤 순환)
+    const statusMsgs = [
+         "서비스 최적화 완료", 
+          "데이터베이스 동기화 완료", 
+          "보안 프로토콜 점검 완료",
+          "콘텐츠 최신화 완료",
+          "시스템 점검 완료",
+          "웹표준 레이아웃 최적화",
+          "사용자 인터페이스 안정화",
+          "성능 개선 완료",
+          "새로운 데이터 로드 완료",
+          "운영 시스템 안정화 완료",
+          "인덱싱 최적화 완료",
+          "데이터 무결성 검사 완료", 
+          "캐시 레이어 갱신",
+          "보안 프로토콜 활성화", 
+          "실시간 콘텐츠 동기화"
+    ];
+    document.getElementById('sync-status').textContent = statusMsgs[Math.floor(Math.random() * statusMsgs.length)];
+  }
+
+  // 4. 실행 제어 (DOM 로드 후 실행)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      const data = getKstInfo();
+      updateUi(data);
+      updateSeoEngine(data);
+    });
+  } else {
+    const data = getKstInfo();
+    updateUi(data);
+    updateSeoEngine(data);
+  }
+})();
+</script>
+
+
+
+
+</body>
 </html>
